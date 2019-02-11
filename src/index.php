@@ -5,12 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?php require("require.php"); ?>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-
     <title>Accueil - Organization</title>
+    <?php require("require.php"); ?>
 </head>
 
 <body>
@@ -25,24 +21,28 @@
                     <tr>
                         <th>Column 1</th>
                         <th>Column 2</th>
+                        <th>Column 3</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Row 1 Data 1</td>
                         <td>Row 1 Data 2</td>
+                        <td>test</td>
                     </tr>
                     <tr>
                         <td>Row 2 Data 1</td>
                         <td>Row 2 Data 2</td>
+                        <td>test3</td>
                     </tr>
                 </tbody>
             </table>
         </article>
         <script>
-            $(document).ready(function () {
-                $('#example').DataTable();
-            });
+            
+            // $(document).ready(function () {
+            //     $('#example').DataTable();
+            // });
         </script>
     </div>
 </body>

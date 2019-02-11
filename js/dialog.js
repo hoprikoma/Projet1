@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+function dialog(){
     $( "#dialog_inscription" ).dialog({
       autoOpen: false,
       show: {
@@ -36,7 +36,7 @@ $( document ).ready(function() {
       $( "#dialog_connexion" ).dialog( "open" );
     });
 
-  } );
+  }
   
 
 
