@@ -5,7 +5,7 @@ function connexion(){
             data: {
               password:"heeee"
             },
-            url: "../src/controller/user_controller.php",
+            url: "../controller/user_controller.php",
             dataType: "html",
             async: false,
             success: function(data) {
