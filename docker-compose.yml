@@ -1,0 +1,18 @@
+version: '3'
+services:
+    db:
+        image: mariadb
+        environment:
+          MYSQL_ROOT_PASSWORD: pass
+          MYSQL_DATABASE: wordpress
+          MYSQL_USER: wordpress
+          MYSQL_PASSWORD: wordpress
+    
+    pma:
+        image: phpmyadmin/phpmyadmin
+        ports:
+          - "8080:80"
+        environment:
+          - PMA_HOST=db
+          - PMA_USER=moi
+          - PMA_PASSWORD=password
