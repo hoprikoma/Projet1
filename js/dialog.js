@@ -37,6 +37,7 @@ $( document ).ready(function() {
     });
 
   } );
+  
 
 
   /* jQuery UI dialog clickoutside */
