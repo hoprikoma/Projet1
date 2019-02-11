@@ -33,10 +33,6 @@ echo'
       }
     echo'
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 ';
@@ -48,11 +44,8 @@ echo'
         <div class="form-group">
             
             <input type="text" class="form-control" id="forename" placeholder="Prénom">
-            <hr class="my-1">
             <input type="text" class="form-control" id="name" placeholder="Nom">
-            <hr class="my-1">
             <input type="email" class="form-control" id="mail-inscription" placeholder="Email">
-            <hr class="my-1">
             <input type="password" class="form-control" id="pass-inscription" aria-describedby="passHelp" placeholder="Mot de passe">
             <small id="passHelp" class="form-text text-muted">Vous ne devez jamais partager votre mot de passe avec qui que ce soit.</small>
         </div>
@@ -68,7 +61,6 @@ echo'
     <fieldset>
         <div class="form-group">
             <input type="email" class="form-control" id="mail-connexion" placeholder="Email" required>
-            <hr class="my-1">
             <input type="password" class="form-control" id="pass-connexion" aria-describedby="passHelp" placeholder="Mot de passe" required>
         </div>
     </fieldset>
