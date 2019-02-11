@@ -14,6 +14,6 @@ class bdd
         die();
         }
         $this->bdd=$data_base;
-        return $this->bdd
+        return $this->bdd;
     }
 }
