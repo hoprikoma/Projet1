@@ -58,14 +58,11 @@ echo'
 echo'
 <div id="dialog_connexion" title="Connexion" class="container">
 <form action="" method="post">
-    <fieldset>
         <div class="form-group">
             <input type="email" class="form-control" id="mail-connexion" placeholder="Email" required>
             <input type="password" class="form-control" id="pass-connexion" aria-describedby="passHelp" placeholder="Mot de passe" required>
         </div>
-    </fieldset>
-        <button type="submit" class="btn btn-primary">Envoi</button>
-    </fieldset>
 </form>
+  <button id="btn-connexion" class="btn btn-primary">Envoi</button>
 </div>';
 
