@@ -1,17 +1,17 @@
 function connexion(){
     $( "#btn-connexion" ).on( "click", function() {
-       /* $.ajax({
+       $.ajax({
             type: "POST",
             data: {
-              invoiceno:jobid
+              password:"heeee"
             },
-            url: "animalHandler.php",
+            url: "../controller/user_controller.php",
             dataType: "html",
             async: false,
             success: function(data) {
-              result=data;
+              console.log(data);
             }
-        }); */
+        });
         console.log("hello");
     });
     
