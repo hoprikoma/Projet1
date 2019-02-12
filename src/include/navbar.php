@@ -71,7 +71,7 @@ echo'
 <div id="form_connexion">
 <form action="" method="post">
         <div class="form-group">
-            <input type="email" class="form-control" id="mail-connexion" onblur="verifMail(this)" placeholder="Email" required>
+            <input type="email" class="form-control" id="mail-connexion" placeholder="Email" required>
             <input type="password" class="form-control" id="pass-connexion" aria-describedby="passHelp" placeholder="Mot de passe" required>
         </div>
 </form>
