@@ -30,7 +30,7 @@ echo'
       else {
         if ($_SESSION['role']=='admin') {
           echo'<li class="nav-item">
-            <a class="nav-link" id="create_conf">Creer conférence</a>
+            <a class="nav-link" id="opener_conf">Creer conférence</a>
           </li>';
         }
           echo'<li class="nav-item">
@@ -86,8 +86,8 @@ echo'
 else {
   if ($_SESSION['role']=="admin") {
     echo'
-<div id="dialog_inscription" title="Inscription" class="container">
-<div id="form_inscription">
+<div id="dialog_conf" title="Inscription" class="container">
+<div id="form_conf">
 <form action="" method="post">
         <div class="form-group">   
             <input type="text" class="form-control" id="name_conf"  placeholder="Nom de la conférence">
