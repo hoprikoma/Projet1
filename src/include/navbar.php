@@ -91,7 +91,8 @@ else {
 <form action="" method="post">
         <div class="form-group">
             <input type="text" class="form-control" id="name_conf"  placeholder="Nom de la conférence">
-            <textarea id="description_conf" name="description_conf" rows="5" cols="33" style="width:100%" placeholder="Description de la conférence"></textarea>
+            <textarea id="description_conf" class="form-control" name="description_conf" rows="5" cols="33" style="width:100%" placeholder="Description de la conférence"></textarea>
+            <input type="text" class="form-control" id="cate_conf" placeholder="Catégorie">
         </div>
 </form>
 </div>
