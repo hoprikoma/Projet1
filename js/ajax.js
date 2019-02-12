@@ -16,12 +16,13 @@ function connexion(){
                }else{
                   $("#form_connexion").hide();
                   $("#button_connexion").hide();
-                  $("#navbar").load("../include/navbar.php");
-                  deconnexion();
                   $("#message_form_connexion").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Vous etes connecter</div>');
+                  //$("#navbar").load("../include/navbar.php #navbar");
+                  window.location.reload()
                }
             }
         });
+        deconnexion();
       }else{
          $("#message_form_connexion").html("<div class='alert alert-danger' role='alert'><i class='fas fa-1x fa-times'></i> Votre email n'est pas valide</div>");
       }
@@ -67,11 +68,9 @@ function deconnexion(){
            dataType: "html",
            async: false,
            success: function(data) {
-              console.log('deconnexion');
-               $("#navbar").load("../include/navbar.php");
-               connexion();
-               inscription();
-               dialog();
+               console.log('deconnexion');
+               //$("#navbar").load("../include/navbar.php #navbar");
+               window.location.reload()
            }
        });
    });  
