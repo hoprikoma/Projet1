@@ -41,7 +41,7 @@ echo '
 ';
 
 if (!isset($_SESSION['user'])) {
-    echo '?>
+    echo '
 <div id="dialog_inscription" title="Inscription" class="container">
 <div id="form_inscription">
 <form action="" method="post">
@@ -51,13 +51,14 @@ if (!isset($_SESSION['user'])) {
             <input type="email" class="form-control" id="mail-inscription"  placeholder="Email">
             <input type="password" class="form-control" id="pass-inscription" aria-describedby="passHelp" placeholder="Mot de passe">
             <small id="passHelp" class="form-text text-muted">Vous ne devez jamais partager votre mot de passe avec qui que ce soit.</small>
+            <div id="button_inscription">
+              <button id="btn-inscription"  class="btn btn-primary">Envoi</button>
+            </div>
         </div>
 </form>
 </div>
 <div id="message_form_inscription"></div>
-<div id="button_inscription">
-<button id="btn-inscription"  class="btn btn-primary">Envoi</button>
-</div>
+
 </div>';
 
     echo '
@@ -67,33 +68,34 @@ if (!isset($_SESSION['user'])) {
         <div class="form-group">
             <input type="email" class="form-control" id="mail-connexion" placeholder="Email" required>
             <input type="password" class="form-control" id="pass-connexion" aria-describedby="passHelp" placeholder="Mot de passe" required>
+            <div id="button_connexion">
+              <button id="btn-connexion" class="btn btn-primary">Envoi</button>
+            </div>
         </div>
 </form>
 </div>
 <div id="message_form_connexion"></div>
-<div id="button_connexion">
-  <button id="btn-connexion" class="btn btn-primary">Envoi</button>
-</div>
+
 </div>';
 
 }
 else {
   if ($_SESSION['role']=="admin") {
     echo'
-<div id="dialog_conf" title="Inscription" class="container">
+<div id="dialog_conf" title="Creation de conférence" class="container">
 <div id="form_conf">
 <form action="" method="post">
         <div class="form-group">
             <input type="text" class="form-control" id="name_conf"  placeholder="Nom de la conférence">
             <textarea id="description_conf" class="form-control" name="description_conf" rows="5" cols="33" style="width:100%" placeholder="Description de la conférence"></textarea>
             <input type="text" class="form-control" id="cate_conf" placeholder="Catégorie">
+            <div id="button_conf">
+                <button id="btn-conf"  class="btn btn-primary">Envoi</button>
+            </div>
         </div>
 </form>
 </div>
 <div id="message_form_conf"></div>
-<div id="button_conf">
-<button id="btn-conf"  class="btn btn-primary">Envoi</button>
-</div>
 </div>';
     }
 }

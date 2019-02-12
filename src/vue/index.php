@@ -17,11 +17,11 @@
         <hr class="my-4">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link show active" data-toggle="tab" href="#home" style="">Conférences</a>
+                <a class="nav-link show active" data-toggle="tab" href="#home" id="conf-display">Conférences</a>
             </li>
             <?php
             if (isset($_SESSION['user'])) {
-                if (!$_SESSION['role']=="admin") {
+                if ($_SESSION['role']!="admin") {
                 echo'
                 <li class="nav-item">
                     <a class="nav-link show" data-toggle="tab" id="conf-vote" href="#conf-vote" style="">Conférences votées</a>
@@ -35,7 +35,7 @@
                 else{
                     echo'
                     <li class="nav-item">
-                        <a class="nav-link show" data-toggle="tab" id="top10" href="#top10" style="">Top10</a>
+                        <a class="nav-link show" data-toggle="tab"  href="#top10" style="">Top10</a>
                     </li>
                     ';    
                 }
@@ -45,32 +45,10 @@
 
         </ul>
         <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade active show" id="home">
-                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Column 1</th>
-                            <th>Column 2</th>
-                            <th>Column 3</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Row 1 Data 1</td>
-                            <td>Row 1 Data 2</td>
-                            <td>test</td>
-                        </tr>
-                        <tr>
-                            <td>Row 2 Data 1</td>
-                            <td>Row 2 Data 2</td>
-                            <td>test3</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
             <?php
             if (isset($_SESSION['user'])) {
-                if (!$_SESSION['role']=="admin") {
+                if ($_SESSION['role']!="admin") {
                     echo'
                     <div class="tab-pane fade" id="conf-vote">
                         <p>2</p>
