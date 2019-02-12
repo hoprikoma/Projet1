@@ -5,6 +5,8 @@ $(document).ready(function(){
     inscription();
     deconnexion();
     createDescription();
+    conferenceVote();
+    conferenceNonVote();
     $('#example').DataTable();
     
 })
