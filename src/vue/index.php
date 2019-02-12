@@ -49,17 +49,12 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Column 1</th>
-                            <th>Column 2</th>
-                            <th>Column 3</th>
+                            <th>Titre</th>
+                            <th>Description</th>
+                            <th>Catégorie</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Row 1 Data 1</td>
-                            <td>Row 1 Data 2</td>
-                            <td>test</td>
-                        </tr>
                         <tr>
                             <td>Row 2 Data 1</td>
                             <td>Row 2 Data 2</td>
