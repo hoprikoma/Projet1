@@ -11,3 +11,7 @@ tr:hover {
 .form-group .form-control{
     margin: 15px 0;
 }
+
+.dataTables_filter .form-control{
+    background-color: #e6e5e5;
+}
