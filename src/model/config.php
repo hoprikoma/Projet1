@@ -1,8 +1,7 @@
 <?php
 
-class bdd 
+class config
 {
-    private $bdd;
 
     function connection(){
         $user='root';
@@ -13,7 +12,7 @@ class bdd
             print "Erreur !: " . $e->getMessage() . "<br/>";
         die();
         }
-        $this->bdd=$data_base;
-        return $this->bdd;
+        return $data_base;
+        
     }
 }
