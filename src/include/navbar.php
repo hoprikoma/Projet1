@@ -12,12 +12,6 @@ echo '
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="index.php">Accueil</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="conferences-votee.php">Conférences votées</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="conferences-non-votee.php">Conférences non votées</a>
       </li>';
 if (!isset($_SESSION['user'])) {
     echo '<li class="nav-item">
@@ -47,7 +41,7 @@ echo '
 ';
 
 if (!isset($_SESSION['user'])) {
-    echo '
+    echo '?>
 <div id="dialog_inscription" title="Inscription" class="container">
 <div id="form_inscription">
 <form action="" method="post">

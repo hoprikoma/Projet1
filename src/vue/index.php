@@ -21,6 +21,7 @@
             </li>
             <?php
             if (isset($_SESSION['user'])) {
+                if (!$_SESSION['role']=="admin") {
                 echo'
                 <li class="nav-item">
                     <a class="nav-link show" data-toggle="tab" href="#conf-vote" style="">Conférences votées</a>
@@ -30,7 +31,8 @@
                     <a class="nav-link show" data-toggle="tab" href="#conf-non-vote" style="">Conférences non votée</a>
                 </li>
                 ';
-                if ($_SESSION['role']=="admin") {
+                }
+                else{
                     echo'
                     <li class="nav-item">
                         <a class="nav-link show" data-toggle="tab" href="#top10" style="">Top10</a>
@@ -68,17 +70,19 @@
             </div>
             <?php
             if (isset($_SESSION['user'])) {
-                echo'
-                <div class="tab-pane fade" id="conf-vote">
-                    <p>2</p>
-                </div>
+                if (!$_SESSION['role']=="admin") {
+                    echo'
+                    <div class="tab-pane fade" id="conf-vote">
+                        <p>2</p>
+                    </div>
                 ';
                 echo'
-                <div class="tab-pane fade" id="conf-non-vote">
-                    <p>3</p>
-                </div>
-                ';
-                if ($_SESSION['role']=="admin") {
+                    <div class="tab-pane fade" id="conf-non-vote">
+                        <p>3</p>
+                    </div>
+                ';    
+                }
+                else{
                     echo'
                     <div class="tab-pane fade" id="top10">
                         <p>4</p>
