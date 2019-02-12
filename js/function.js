@@ -4,9 +4,10 @@ $(document).ready(function(){
     connexion();
     inscription();
     deconnexion();
-    createDescription();
-    conferenceVote();
-    conferenceNonVote();
-    $('#example').DataTable();
+    createConference();
+    getConference();
+    refreshGetConference();
+    // conferenceVote();
+    // conferenceNonVote();
     
 })
