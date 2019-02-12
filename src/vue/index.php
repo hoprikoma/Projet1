@@ -24,18 +24,18 @@
                 if (!$_SESSION['role']=="admin") {
                 echo'
                 <li class="nav-item">
-                    <a class="nav-link show" data-toggle="tab" href="#conf-vote" style="">Conférences votées</a>
+                    <a class="nav-link show" data-toggle="tab" id="conf-vote" href="#conf-vote" style="">Conférences votées</a>
                 </li>';
                 echo'
                 <li class="nav-item">
-                    <a class="nav-link show" data-toggle="tab" href="#conf-non-vote" style="">Conférences non votée</a>
+                    <a class="nav-link show" data-toggle="tab" id="conf-non-vote" href="#conf-non-vote" style="">Conférences non votée</a>
                 </li>
                 ';
                 }
                 else{
                     echo'
                     <li class="nav-item">
-                        <a class="nav-link show" data-toggle="tab" href="#top10" style="">Top10</a>
+                        <a class="nav-link show" data-toggle="tab" id="top10" href="#top10" style="">Top10</a>
                     </li>
                     ';    
                 }
