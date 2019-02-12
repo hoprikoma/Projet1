@@ -14,7 +14,6 @@ class comference extends config
             if($data[0]['COUNT(*)']==1){
                return 0;
             }else{
-                echo $name." ".$description." ".$categorie." ".$_SESSION['id_user']." ";
                 $insert = $data_base->prepare("INSERT INTO `comference` (nom,description,id_categorie,id_auteur) VALUE (:nom, :description, :categorie, :id_auteur)");
                 $insert->bindParam(':nom',$name);
                 $insert->bindParam(':description',$description);
@@ -23,6 +22,19 @@ class comference extends config
                 $insert->execute();
                 return 1;
             }
+        } catch (PDOException $e) {
+            return "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+
+    function get_conf(){
+        try {
+            $data_base=$this->connection();
+                $select = $data_base->prepare("SELECT projet.categorie.nom, projet.comference.nom AS nom1, projet.comference.description FROM projet.categorie INNER JOIN projet.comference ON projet.comference.id_categorie = projet.categorie.id");
+                $select->execute();
+                $data=$select->fetchAll();
+                return $data;
         } catch (PDOException $e) {
             return "Erreur !: " . $e->getMessage() . "<br/>";
             die();

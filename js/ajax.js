@@ -88,10 +88,8 @@ function verifMail(champ)
       return true;
    }
 }
-function createDescription(){
+function createConference(){
    $( "#btn-conf" ).on( "click", function() {
-      console.log("test00");
-      
        $.ajax({
            type: "POST",
            data: {
@@ -114,55 +112,50 @@ function createDescription(){
        });
    });  
 }
-function conferenceVote(){
-   $( "#conf-vote" ).on( "click", function() {
-      console.log("testvote");
+function getConference(){
+   //$( "#conf-display" ).on( "click", function() {
       
-      /* $.ajax({
+       $.ajax({
            type: "POST",
-           data: {
-             name:$("#name_conf").val(),description:$("#description_conf").val(),categorie:$("#cate_conf").val()
-           },
-           url: "../controller/create_conference_controller.php",
+           url: "../controller/get_conference_controller.php",
            dataType: "html",
            async: false,
            success: function(data) {
-              if(data==0){
-                 $("#message_form_conf").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Problème de création</div>');
-              }else{
-                 $("#form_conf").hide();
-                 $("#button_conf").hide();
-                 $("#message_form_conf").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Création effectuée</div>');
-                 //$("#navbar").load("../include/navbar.php #navbar");
-               //   window.location.reload()
-              }
+            //   console.log(data);
+              
+              var json = JSON.parse(data);
+              let div = '<div class="tab-pane fade active show" id="home">';
+              div+='<table id="example" class="table table-striped table-bordered" style="width:100%">';
+                  div+='<thead>';
+                      div+='<tr>';
+                          div+='<th>Titre</th>';
+                              div+='<th>Description</th>';
+                              div+='<th>Catégorie</th>';
+                              div+='</tr>';
+                          div+='</thead>';
+                      div+='<tbody>';
+                      
+                      $.each( json, function( key, value ) {
+                        div+='<tr>';
+                           div+='<td>'+value.nom1+'</td>';
+                           div+='<td>'+value.description+'</td>';
+                           div+='<td>'+value.nom+'</td>';
+                           div+='</tr>';
+                      });
+                           
+
+                      div+='</tbody>';
+                  div+='</table>';
+              div+='</div>';
+              $("#myTabContent").html(div);
+              $('#example').DataTable();
            }
-       });*/
-   });  
+       });
+   // });
 }
-function conferenceNonVote(){
-   $( "#conf-non-vote" ).on( "click", function() {
-      console.log("testnonvote");
-      
-      /* $.ajax({
-           type: "POST",
-           data: {
-             name:$("#name_conf").val(),description:$("#description_conf").val(),categorie:$("#cate_conf").val()
-           },
-           url: "../controller/create_conference_controller.php",
-           dataType: "html",
-           async: false,
-           success: function(data) {
-              if(data==0){
-                 $("#message_form_conf").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Problème de création</div>');
-              }else{
-                 $("#form_conf").hide();
-                 $("#button_conf").hide();
-                 $("#message_form_conf").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Création effectuée</div>');
-                 //$("#navbar").load("../include/navbar.php #navbar");
-               //   window.location.reload()
-              }
-           }
-       });*/
-   });  
+
+function refreshGetConference(){
+   $( "#conf-display" ).on( "click", function() {
+      getConference();
+   });
 }
