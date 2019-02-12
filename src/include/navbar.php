@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo'
+echo '
 <div id="navbar">
 <nav  class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Organization</a>
@@ -19,39 +19,38 @@ echo'
       <li class="nav-item">
         <a class="nav-link" href="conferences-non-votee.php">Conférences non votées</a>
       </li>';
-      if (!isset($_SESSION['user'])) {
-          echo'<li class="nav-item">
+if (!isset($_SESSION['user'])) {
+    echo '<li class="nav-item">
           <a class="nav-link" id="opener_inscription">Inscription</a>
         </li>';
-        echo'<li class="nav-item">
+    echo '<li class="nav-item">
           <a class="nav-link" id="opener_connexion">Connexion</a>
         </li>';
-      }
-      else {
-        if ($_SESSION['role']=='admin') {
-          echo'<li class="nav-item">
+} else {
+    if ($_SESSION['role'] == 'admin') {
+        echo '<li class="nav-item">
             <a class="nav-link" id="create_conf">Creer conférence</a>
           </li>';
-        }
-          echo'<li class="nav-item">
+    }
+    echo '<li class="nav-item">
           <a class="nav-link" href="profil.php">Profil</a>
         </li>';
-        echo'<li class="nav-item">
+    echo '<li class="nav-item">
           <a class="nav-link" id="deconnexion">Deconnexion</a>
         </li>';
-      }
-    echo'
+}
+echo '
     </ul>
   </div>
 </nav>
 ';
 
 if (!isset($_SESSION['user'])) {
-echo'
+    echo '
 <div id="dialog_inscription" title="Inscription" class="container">
 <div id="form_inscription">
 <form action="" method="post">
-        <div class="form-group">   
+        <div class="form-group">
             <input type="text" class="form-control" id="forename"  placeholder="Prénom">
             <input type="text" class="form-control" id="name"  placeholder="Nom">
             <input type="email" class="form-control" id="mail-inscription"  placeholder="Email">
@@ -66,7 +65,7 @@ echo'
 </div>
 </div>';
 
-echo'
+    echo '
 <div id="dialog_connexion" title="Connexion" class="container">
 <div id="form_connexion">
 <form action="" method="post">
@@ -82,14 +81,13 @@ echo'
 </div>
 </div>';
 
-}
-else {
-  if ($_SESSION['role']=="admin") {
-    echo'
+} else {
+    if ($_SESSION['role'] == "admin") {
+        echo '
 <div id="dialog_inscription" title="Inscription" class="container">
 <div id="form_inscription">
 <form action="" method="post">
-        <div class="form-group">   
+        <div class="form-group">
             <input type="text" class="form-control" id="name_conf"  placeholder="Nom de la conférence">
             <textarea id="description_conf" name="description_conf" rows="5" cols="33"></textarea>
         </div>
@@ -100,6 +98,6 @@ else {
 <button id="btn-conf"  class="btn btn-primary">Envoi</button>
 </div>
 </div>';
-  }
+    }
 }
-echo'</div>';
+echo '</div>';
