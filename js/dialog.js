@@ -27,6 +27,20 @@ function dialog(){
       clickOutsideTrigger: "#opener_connexion"
     });
 
+    $( "#dialog_conf" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 10
+      },
+      hide: {
+        effect: "blind",
+        duration: 10
+      },
+      clickOutside: true,
+      clickOutsideTrigger: "#opener_conf"
+    });
+
 
     $( "#opener_inscription" ).on( "click", function() {
       $( "#dialog_inscription" ).dialog( "open" );
@@ -34,6 +48,10 @@ function dialog(){
  
     $( "#opener_connexion" ).on( "click", function() {
       $( "#dialog_connexion" ).dialog( "open" );
+    });
+    
+    $( "#opener_conf" ).on( "click", function() {
+      $( "#dialog_conf" ).dialog( "open" );
     });
 
   }
