@@ -114,3 +114,55 @@ function createDescription(){
        });
    });  
 }
+function conferenceVote(){
+   $( "#conf-vote" ).on( "click", function() {
+      console.log("testvote");
+      
+      /* $.ajax({
+           type: "POST",
+           data: {
+             name:$("#name_conf").val(),description:$("#description_conf").val(),categorie:$("#cate_conf").val()
+           },
+           url: "../controller/create_conference_controller.php",
+           dataType: "html",
+           async: false,
+           success: function(data) {
+              if(data==0){
+                 $("#message_form_conf").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Problème de création</div>');
+              }else{
+                 $("#form_conf").hide();
+                 $("#button_conf").hide();
+                 $("#message_form_conf").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Création effectuée</div>');
+                 //$("#navbar").load("../include/navbar.php #navbar");
+               //   window.location.reload()
+              }
+           }
+       });*/
+   });  
+}
+function conferenceNonVote(){
+   $( "#conf-non-vote" ).on( "click", function() {
+      console.log("testnonvote");
+      
+      /* $.ajax({
+           type: "POST",
+           data: {
+             name:$("#name_conf").val(),description:$("#description_conf").val(),categorie:$("#cate_conf").val()
+           },
+           url: "../controller/create_conference_controller.php",
+           dataType: "html",
+           async: false,
+           success: function(data) {
+              if(data==0){
+                 $("#message_form_conf").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Problème de création</div>');
+              }else{
+                 $("#form_conf").hide();
+                 $("#button_conf").hide();
+                 $("#message_form_conf").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Création effectuée</div>');
+                 //$("#navbar").load("../include/navbar.php #navbar");
+               //   window.location.reload()
+              }
+           }
+       });*/
+   });  
+}
