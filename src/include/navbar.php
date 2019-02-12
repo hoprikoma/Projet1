@@ -28,6 +28,11 @@ echo'
         </li>';
       }
       else {
+        if ($_SESSION['role']=='admin') {
+          echo'<li class="nav-item">
+            <a class="nav-link" id="create_conf">Creer conférence</a>
+          </li>';
+        }
           echo'<li class="nav-item">
           <a class="nav-link" href="profil.php">Profil</a>
         </li>';
@@ -76,6 +81,25 @@ echo'
   <button id="btn-connexion" class="btn btn-primary">Envoi</button>
 </div>
 </div>';
+
+}
+else {
+  if ($_SESSION['role']=="admin") {
+    echo'
+<div id="dialog_inscription" title="Inscription" class="container">
+<div id="form_inscription">
+<form action="" method="post">
+        <div class="form-group">   
+            <input type="text" class="form-control" id="name_conf"  placeholder="Nom de la conférence">
+            <textarea id="description_conf" name="description_conf" rows="5" cols="33"></textarea>
+        </div>
+</form>
+</div>
+<div id="message_form_conf"></div>
+<div id="button_conf">
+<button id="btn-conf"  class="btn btn-primary">Envoi</button>
+</div>
+</div>';
+  }
 }
 echo'</div>';
-
