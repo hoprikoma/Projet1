@@ -68,8 +68,7 @@ function dialog(){
       $( "#dialog_conf" ).dialog( "open" );
     });
     $( ".opener_vote" ).on( "click", function() {
-      console.log("je marche");
-      div='<div class="rating">';
+      div='<div class="rating container" id="form_star">';
       div+='<form method="POST">';
       div+='<label for="star1" title="Mauvaise">1 star</label>';
       div+='<input type="radio" id="star1" name="rating" value="1" />';
@@ -81,6 +80,9 @@ function dialog(){
       div+='<input type="radio" id="star4" name="rating" value="4" />';
       div+='<label for="star5" title="Géniale">5 stars</label>';
       div+='<input type="radio" id="star5" name="rating" value="5" />';
+      div+='<div id="button_conf">';
+      div+='<button id="btn-conf"  class="btn btn-primary" style="margin-bottom:10px">Envoi</button>';
+      div+='</div>';
       div+='</form>';
       div+='</div>';
       $('#dialog_vote').html(div);
