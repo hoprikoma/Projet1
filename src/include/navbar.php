@@ -26,6 +26,9 @@ if (!isset($_SESSION['user'])) {
           echo'<li class="nav-item">
             <a class="nav-link" id="opener_conf">Creer conférence</a>
           </li>';
+          echo'<li class="nav-item">
+            <a class="nav-link" id="delete-all">Supprimer toute les conférences</a>
+          </li>';
     }
     echo '<li class="nav-item">
           <a class="nav-link" id="deconnexion">Deconnexion</a>

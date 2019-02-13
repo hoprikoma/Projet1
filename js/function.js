@@ -9,4 +9,5 @@ $(document).ready(function(){
     getConferenceNonVote();
     getConferenceVote();
     getGererConference();
+    allConferenceSupprimer();
 })

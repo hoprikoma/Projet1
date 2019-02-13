@@ -20,6 +20,7 @@ class comference extends config
                 $insert->bindParam(':categorie',$categorie);
                 $insert->bindParam(':id_auteur',$_SESSION['id_user']);
                 $insert->execute();
+                $this->mail($name);
                 return 1;
             }
         } catch (PDOException $e) {
@@ -46,6 +47,18 @@ class comference extends config
             $data_base=$this->connection();
             $delete=$data_base->prepare('DELETE FROM comference WHERE id = :id_conference');
             $delete->bindParam(':id_conference',$id_conference);
+            $delete->execute();
+            return 1;
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+
+    function deleteAll_conf(){
+        try {
+            $data_base=$this->connection();
+            $delete=$data_base->prepare('DELETE FROM comference');
             $delete->execute();
             return 1;
         } catch (PDOException $e) {
