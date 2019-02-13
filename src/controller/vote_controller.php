@@ -1,6 +1,5 @@
 <?php
 require_once '../model/vote.php';
-
      $vote = new vote();
-     $result = $vote->getConferenceTop10();
-     echo json_encode($result);
+     $result = $vote->insertVote($_POST['id_conference'],$_POST['vote']);
+     echo $result;

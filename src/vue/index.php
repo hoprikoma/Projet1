@@ -37,6 +37,11 @@
                     <li class="nav-item">
                         <a class="nav-link show" data-toggle="tab" id="top10" href="#top10" style="">Top10</a>
                     </li>
+                    ';  
+                    echo'
+                    <li class="nav-item">
+                        <a class="nav-link show" data-toggle="tab" id="conf-gerer" href="#gerer" style="">Gerer les conferences</a>
+                    </li>
                     ';    
                 }
             }
@@ -51,21 +56,22 @@
                 if ($_SESSION['role']!="admin") {
                     echo'
                     <div class="tab-pane fade" id="conf-vote">
-                        <p>2</p>
                     </div>
                 ';
                 echo'
                     <div class="tab-pane fade" id="conf-non-vote">
-                        <p>3</p>
                     </div>
                 ';    
                 }
                 else{
                     echo'
                     <div class="tab-pane fade" id="top10">
-                        <p>4</p>
                     </div>
                     ';    
+                    echo'
+                    <div class="tab-pane fade" id="conf-gerer">
+                    </div>
+                    ';  
                 }
             }
             ?>            

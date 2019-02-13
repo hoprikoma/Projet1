@@ -129,7 +129,7 @@ function getConference(){
                           div+='<th>Titre</th>';
                               div+='<th>Description</th>';
                               div+='<th>Catégorie</th>';
-                              div+='<th>Action</th>';
+                            //  div+='<th>Action</th>';
                               div+='</tr>';
                           div+='</thead>';
                       div+='<tbody>';
@@ -139,7 +139,7 @@ function getConference(){
                            div+='<td>'+value.nom1+'</td>';
                            div+='<td>'+value.description+'</td>';
                            div+='<td>'+value.nom+'</td>';
-                           div+='<td><span id="'+value.id+'" class="opener_vote"><i class="fas fa-star"></i></span></td>';
+                         //  div+='<td><span id="'+value.id+'" class="opener_vote"><i class="fas fa-star"></i></span></td>';
                            div+='</tr>';
                       });
                            
@@ -147,7 +147,7 @@ function getConference(){
                       div+='</tbody>';
                   div+='</table>';
               div+='</div>';
-              div+='<div id="dialog_vote" title="Vote" class="container"></div>';
+             // div+='<div id="dialog_vote" title="Vote" class="container"></div>';
               $("#myTabContent").html(div);
               $('#example').DataTable( {
                 "language": {
@@ -241,7 +241,7 @@ function getConferenceNonVote(){
                            div+='<td>'+value.nom1+'</td>';
                            div+='<td>'+value.description+'</td>';
                            div+='<td>'+value.nom+'</td>';
-                           div+='<td><span id="'+value.id+'" class="opener_vote"><i class="fas fa-star"></i></span></td>';
+                           div+='<td><span id="'+value.id+'" class="opener_vote" title="Voter"><i class="fas fa-star"></i></span></td>';
                            div+='</tr>';
                       });
                            
@@ -307,3 +307,110 @@ function getConferenceTop10(){
        });
     });
 }
+function gererConference(){
+       console.log("non-vote");
+        $.ajax({
+            type: "POST",
+            url: "../controller/get_conference_controller.php",
+            dataType: "html",
+            async: false,
+            success: function(data) {
+             //   console.log(data);
+               
+               var json = JSON.parse(data);
+               let div = '<div class="tab-pane fade active show" id="home">';
+               div+='<table id="example" class="table table-striped table-bordered" style="width:100%">';
+                   div+='<thead>';
+                       div+='<tr>';
+                           div+='<th>Titre</th>';
+                               div+='<th>Description</th>';
+                               div+='<th>Catégorie</th>';
+                               div+='<th>Action</th>';
+                               div+='</tr>';
+                           div+='</thead>';
+                       div+='<tbody>';
+                       
+                       $.each( json, function( key, value ) {
+                         div+='<tr>';
+                            div+='<td>'+value.nom1+'</td>';
+                            div+='<td>'+value.description+'</td>';
+                            div+='<td>'+value.nom+'</td>';
+                            div+='<td><span id="'+value.id+'" class="btn_supprimer" title="Supprimer"><i class="fas fa-trash"></i></span></td>';
+                            div+='</tr>';
+                       });
+                            
+ 
+                       div+='</tbody>';
+                   div+='</table>';
+               div+='</div>';
+               $("#myTabContent").html(div);
+               $('#example').DataTable( {
+                 "language": {
+                     "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                 }
+             });
+               dialog();
+               conferenceSupprimer();
+            }
+        });
+ }
+function getGererConference(){
+    $( "#conf-gerer" ).on( "click", function() {
+        gererConference();
+    });
+}
+function conferenceSupprimer(){
+    $( ".btn_supprimer" ).on( "click", function() {
+        console.log(this.getAttribute('id'));
+        $.ajax({
+            type: "POST",
+            data: {
+              id_conference:this.getAttribute('id')
+            },
+            url: "../controller/supprimer_controller.php",
+            dataType: "html",
+            async: false,
+            success: function(data) {
+               gererConference();
+            }
+        });
+    });  
+ }
+ function allConferenceSupprimer(){
+    $( "#delete-all" ).on( "click", function() {
+        console.log(this.getAttribute('id'));
+        $.ajax({
+            type: "POST",
+            url: "../controller/supprimerall_controller.php",
+            dataType: "html",
+            async: false,
+            success: function(data) {
+                getConference();
+            }
+        });
+    });  
+ }
+ function vote(){
+    $( "#btn-vote" ).on( "click", function() {
+        console.log($("#id_conference").val());
+        console.log($("input[name=rating]:checked").val());
+        $.ajax({
+            type: "POST",
+            data: {
+              id_conference:$("#id_conference").val(), vote:$("input[name=rating]:checked").val()
+            },
+            url: "../controller/vote_controller.php",
+            dataType: "html",
+            async: false,
+            success: function(data) {
+               if(data==0){
+                  $("#message_form_conf").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Erreur Enregistrement</div>');
+               }else{
+                  $("#form_conf").hide();
+                  $("#button_conf").hide();
+                  $("#message_form_conf").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Vote Enregitrer</div>');
+               }
+            }
+        });
+    });  
+ }
