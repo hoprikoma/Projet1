@@ -1,2 +1,2 @@
-FROM php:7.2-cli
-RUN docker-php-ext-install pdo_mysql
+FROM mariadb
+ADD .\\sql\\projet_v1.sql /docket-entrypoint-initdb.d

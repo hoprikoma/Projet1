@@ -4,7 +4,7 @@ services:
   web:
     build:
       context: ./
-      dockerfile: Dockerfile
+      # dockerfile: Dockerfile
     image: webdevops/php-nginx:7.3
     working_dir: /app
     ports:
@@ -26,15 +26,11 @@ services:
       - "8025:8025"
 
   database:
-    image: mysql:5.7
+    image: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes: 
-      - "./sql/projet_v1.sql:/var/lib/mysql"
-    ports:
-      - "3306:3306"
-    expose:
-      - "3306"
+      - ./sql/projet_v1.sql:/docker-entrypoint-initdb.d/dump.sql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -44,3 +40,4 @@ services:
       - "8081:80"
     environment:
       MYSQL_ROOT_PASSWORD: root
+      PMA_HOST: database
