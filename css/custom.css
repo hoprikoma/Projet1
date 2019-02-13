@@ -16,12 +16,16 @@ tr:hover {
     background-color: #e6e5e5;
 }
 
+div.rating {
+    overflow: hidden;
+}
+
 div.rating label {
     color: Gold;
     text-indent: -2000em;
     display: inline-block;
-    font-size: 1.2em;
-    width: 1.2em;
+    font-size: 48px;
+    width: 46px;
 }
 
 div.rating label::before {

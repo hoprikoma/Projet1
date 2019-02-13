@@ -149,7 +149,11 @@ function getConference(){
               div+='</div>';
               div+='<div id="dialog_vote" title="Vote" class="container"></div>';
               $("#myTabContent").html(div);
-              $('#example').DataTable();
+              $('#example').DataTable( {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+            });
               dialog();
            }
        });
@@ -198,7 +202,11 @@ function getConferenceVote(){
                   div+='</table>';
               div+='</div>';
               $("#myTabContent").html(div);
-              $('#example').DataTable();
+              $('#example').DataTable( {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+            } );
            }
        });
     });
@@ -243,7 +251,11 @@ function getConferenceNonVote(){
               div+='</div>';
               div+='<div id="dialog_vote" title="Vote" class="container"></div>';
               $("#myTabContent").html(div);
-              $('#example').DataTable();
+              $('#example').DataTable( {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+            });
               dialog();
            }
        });
@@ -286,7 +298,11 @@ function getConferenceTop10(){
                   div+='</table>';
               div+='</div>';
               $("#myTabContent").html(div);
-              $('#example').DataTable();
+              $('#example').DataTable( {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+            });
            }
        });
     });
