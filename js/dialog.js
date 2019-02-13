@@ -41,6 +41,20 @@ function dialog(){
       clickOutsideTrigger: "#opener_conf"
     });
 
+    $( "#dialog_vote" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 10
+      },
+      hide: {
+        effect: "blind",
+        duration: 10
+      },
+      clickOutside: true,
+      clickOutsideTrigger: ".opener_vote"
+    });
+
 
     $( "#opener_inscription" ).on( "click", function() {
       $( "#dialog_inscription" ).dialog( "open" );
@@ -52,6 +66,25 @@ function dialog(){
     
     $( "#opener_conf" ).on( "click", function() {
       $( "#dialog_conf" ).dialog( "open" );
+    });
+    $( ".opener_vote" ).on( "click", function() {
+      console.log("je marche");
+      div='<div class="rating">';
+      div+='<form method="POST">';
+      div+='<label for="star1" title="Mauvaise">1 star</label>';
+      div+='<input type="radio" id="star1" name="rating" value="1" />';
+      div+='<label for="star2" title="Pas interessante">2 stars</label>';
+      div+='<input type="radio" id="star2" name="rating" value="2" />';
+      div+='<label for="star3" title="Moyenne">3 stars</label>';
+      div+='<input type="radio" id="star3" name="rating" value="3" checked="checked">';
+      div+='<label for="star4" title="Plutot bonne">4 stars</label>';
+      div+='<input type="radio" id="star4" name="rating" value="4" />';
+      div+='<label for="star5" title="Géniale">5 stars</label>';
+      div+='<input type="radio" id="star5" name="rating" value="5" />';
+      div+='</form>';
+      div+='</div>';
+      $('#dialog_vote').html(div);
+      $( "#dialog_vote" ).dialog( "open" );
     });
 
   }

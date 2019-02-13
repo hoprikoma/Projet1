@@ -35,7 +35,7 @@
                 else{
                     echo'
                     <li class="nav-item">
-                        <a class="nav-link show" data-toggle="tab"  href="#top10" style="">Top10</a>
+                        <a class="nav-link show" data-toggle="tab" id="top10" href="#top10" style="">Top10</a>
                     </li>
                     ';    
                 }

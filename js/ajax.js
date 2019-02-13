@@ -105,8 +105,6 @@ function createConference(){
                  $("#form_conf").hide();
                  $("#button_conf").hide();
                  $("#message_form_conf").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Création effectuée</div>');
-                 //$("#navbar").load("../include/navbar.php #navbar");
-               //   window.location.reload()
               }
            }
        });
@@ -118,6 +116,58 @@ function getConference(){
        $.ajax({
            type: "POST",
            url: "../controller/get_conference_controller.php",
+           dataType: "html",
+           async: false,
+           success: function(data) {
+            //   console.log(data);
+              
+              var json = JSON.parse(data);
+              let div = '<div class="tab-pane fade active show" id="home">';
+              div+='<table id="example" class="table table-striped table-bordered" style="width:100%">';
+                  div+='<thead>';
+                      div+='<tr>';
+                          div+='<th>Titre</th>';
+                              div+='<th>Description</th>';
+                              div+='<th>Catégorie</th>';
+                              div+='<th>Action</th>';
+                              div+='</tr>';
+                          div+='</thead>';
+                      div+='<tbody>';
+                      
+                      $.each( json, function( key, value ) {
+                        div+='<tr>';
+                           div+='<td>'+value.nom1+'</td>';
+                           div+='<td>'+value.description+'</td>';
+                           div+='<td>'+value.nom+'</td>';
+                           div+='<td><span id="'+value.id+'" class="opener_vote"><i class="fas fa-star"></i></span></td>';
+                           div+='</tr>';
+                      });
+                           
+
+                      div+='</tbody>';
+                  div+='</table>';
+              div+='</div>';
+              div+='<div id="dialog_vote" title="Vote" class="container"></div>';
+              $("#myTabContent").html(div);
+              $('#example').DataTable();
+              dialog();
+           }
+       });
+   // });
+}
+
+function refreshGetConference(){
+   $( "#conf-display" ).on( "click", function() {
+      getConference();
+   });
+}
+
+function getConferenceVote(){
+   $( "#conf-vote" ).on( "click", function() {
+    console.log("vote");
+       $.ajax({
+           type: "POST",
+           url: "../controller/getconferencevote_controller.php",
            dataType: "html",
            async: false,
            success: function(data) {
@@ -151,11 +201,93 @@ function getConference(){
               $('#example').DataTable();
            }
        });
-   // });
+    });
 }
 
-function refreshGetConference(){
-   $( "#conf-display" ).on( "click", function() {
-      getConference();
-   });
+function getConferenceNonVote(){
+   $( "#conf-non-vote" ).on( "click", function() {
+      console.log("non-vote");
+       $.ajax({
+           type: "POST",
+           url: "../controller/getconferencenonvote_controller.php",
+           dataType: "html",
+           async: false,
+           success: function(data) {
+            //   console.log(data);
+              
+              var json = JSON.parse(data);
+              let div = '<div class="tab-pane fade active show" id="home">';
+              div+='<table id="example" class="table table-striped table-bordered" style="width:100%">';
+                  div+='<thead>';
+                      div+='<tr>';
+                          div+='<th>Titre</th>';
+                              div+='<th>Description</th>';
+                              div+='<th>Catégorie</th>';
+                              div+='<th>Action</th>';
+                              div+='</tr>';
+                          div+='</thead>';
+                      div+='<tbody>';
+                      
+                      $.each( json, function( key, value ) {
+                        div+='<tr>';
+                           div+='<td>'+value.nom1+'</td>';
+                           div+='<td>'+value.description+'</td>';
+                           div+='<td>'+value.nom+'</td>';
+                           div+='<td><span id="'+value.id+'" class="opener_vote"><i class="fas fa-star"></i></span></td>';
+                           div+='</tr>';
+                      });
+                           
+
+                      div+='</tbody>';
+                  div+='</table>';
+              div+='</div>';
+              div+='<div id="dialog_vote" title="Vote" class="container"></div>';
+              $("#myTabContent").html(div);
+              $('#example').DataTable();
+              dialog();
+           }
+       });
+    });
+}
+
+function getConferenceTop10(){
+   $( "#top10" ).on( "click", function() {
+      
+       $.ajax({
+           type: "POST",
+           url: "../controller/getconferencetop10_controller.php",
+           dataType: "html",
+           async: false,
+           success: function(data) {
+            //   console.log(data);
+              
+              var json = JSON.parse(data);
+              let div = '<div class="tab-pane fade active show" id="home">';
+              div+='<table id="example" class="table table-striped table-bordered" style="width:100%">';
+                  div+='<thead>';
+                      div+='<tr>';
+                          div+='<th>Titre</th>';
+                              div+='<th>Description</th>';
+                              div+='<th>Catégorie</th>';
+                              div+='</tr>';
+                          div+='</thead>';
+                      div+='<tbody>';
+                      
+                      $.each( json, function( key, value ) {
+                        div+='<tr>';
+                           div+='<td>'+value.nom1+'</td>';
+                           div+='<td>'+value.description+'</td>';
+                           div+='<td>'+value.nom+'</td>';
+                           div+='</tr>';
+                      });
+                           
+
+                      div+='</tbody>';
+                  div+='</table>';
+              div+='</div>';
+              $("#myTabContent").html(div);
+              $('#example').DataTable();
+           }
+       });
+    });
 }
