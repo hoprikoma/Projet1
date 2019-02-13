@@ -31,7 +31,7 @@ class comference extends config
     function get_conf(){
         try {
             $data_base=$this->connection();
-                $select = $data_base->prepare("SELECT projet.categorie.nom, projet.comference.nom AS nom1, projet.comference.description FROM projet.categorie INNER JOIN projet.comference ON projet.comference.id_categorie = projet.categorie.id");
+                $select = $data_base->prepare("SELECT projet.categorie.nom, projet.comference.nom AS nom1, projet.comference.description, projet.comference.id FROM projet.categorie INNER JOIN projet.comference ON projet.comference.id_categorie = projet.categorie.id");
                 $select->execute();
                 $data=$select->fetchAll();
                 return $data;

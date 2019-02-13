@@ -7,7 +7,7 @@ $(document).ready(function(){
     createConference();
     getConference();
     refreshGetConference();
-    // conferenceVote();
-    // conferenceNonVote();
+    getConferenceNonVote();
+    getConferenceVote();
     
 })
