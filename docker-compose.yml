@@ -2,6 +2,9 @@ version: "3.5"
 
 services:
   web:
+    build:
+      context: ./
+      # dockerfile: Dockerfile
     image: webdevops/php-nginx:7.3
     working_dir: /app
     ports:
@@ -15,12 +18,19 @@ services:
       WEB_DOCUMENT_INDEX: index.php
       PHP_DATE_TIMEZONE: "Europe/Paris"
       PHP_DISPLAY_ERRORS: 1
+  
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
 
   database:
     image: mariadb
     environment:
-      MYSQL_DATABASE: symfonydemo
       MYSQL_ROOT_PASSWORD: root
+    volumes: 
+      - ./sql/projet_v1.sql:/docker-entrypoint-initdb.d/dump.sql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
