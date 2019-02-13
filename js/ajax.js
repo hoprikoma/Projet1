@@ -376,6 +376,20 @@ function conferenceSupprimer(){
         });
     });  
  }
+ function allConferenceSupprimer(){
+    $( "#delete-all" ).on( "click", function() {
+        console.log(this.getAttribute('id'));
+        $.ajax({
+            type: "POST",
+            url: "../controller/supprimerall_controller.php",
+            dataType: "html",
+            async: false,
+            success: function(data) {
+                getConference();
+            }
+        });
+    });  
+ }
  function vote(){
     $( "#btn-vote" ).on( "click", function() {
         console.log($("#id_conference").val());

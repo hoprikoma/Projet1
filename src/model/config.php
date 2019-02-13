@@ -15,4 +15,13 @@ class config
         return $data_base;
         
     }
+    function mail($name){
+        $to = "organization@example.com";
+        $subject = "New conference";
+        $txt = "La conference ".$name." à ete créer";
+        $headers = "organization@example.com" . "\r\n" .
+        "BCC: somebodyelse@example.com";
+
+        mail($to,$subject,$txt,$headers);
+    }
 }
