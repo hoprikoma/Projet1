@@ -40,4 +40,17 @@ class comference extends config
             die();
         }
     }
+
+    function delete_conf($id_conference){
+        try {
+            $data_base=$this->connection();
+            $delete=$data_base->prepare('DELETE FROM comference WHERE id = :id_conference');
+            $delete->bindParam(':id_conference',$id_conference);
+            $delete->execute();
+            return 1;
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
 }

@@ -28,9 +28,6 @@ if (!isset($_SESSION['user'])) {
           </li>';
     }
     echo '<li class="nav-item">
-          <a class="nav-link" href="profil.php">Profil</a>
-        </li>';
-    echo '<li class="nav-item">
           <a class="nav-link" id="deconnexion">Deconnexion</a>
         </li>';
 }
@@ -90,7 +87,7 @@ else {
             <textarea id="description_conf" class="form-control" name="description_conf" rows="5" cols="33" style="width:100%" placeholder="Description de la conférence"></textarea>
             <input type="text" class="form-control" id="cate_conf" placeholder="Catégorie">
             <div id="button_conf">
-                <button id="btn-conf"  class="btn btn-primary">Envoi</button>
+                <button id="btn-conf" class="btn btn-primary">Envoi</button>
             </div>
         </div>
 </form>

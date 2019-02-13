@@ -1,6 +1,5 @@
 $(document).ready(function(){
     dialog();
-    
     connexion();
     inscription();
     deconnexion();
@@ -9,5 +8,5 @@ $(document).ready(function(){
     refreshGetConference();
     getConferenceNonVote();
     getConferenceVote();
-    
+    getGererConference();
 })
