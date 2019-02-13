@@ -50,4 +50,20 @@ class vote extends config
             die();
         }
     }
+    function insertVote($id_conference,$vote)
+    {
+      session_start();
+        try {
+            $data_base=$this->connection();
+                $insert = $data_base->prepare("INSERT INTO `vote` (id_user,id_conference,level) VALUE (:user, :conference, :level)");
+                $insert->bindParam(':level',$vote);
+                $insert->bindParam(':conference',$id_conference);
+                $insert->bindParam(':user',$_SESSION['id_user']);
+                $insert->execute();
+                return 1;
+        } catch (PDOException $e) {
+            return "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
 }

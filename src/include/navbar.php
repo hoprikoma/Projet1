@@ -28,9 +28,6 @@ if (!isset($_SESSION['user'])) {
           </li>';
     }
     echo '<li class="nav-item">
-          <a class="nav-link" href="profil.php">Profil</a>
-        </li>';
-    echo '<li class="nav-item">
           <a class="nav-link" id="deconnexion">Deconnexion</a>
         </li>';
 }
