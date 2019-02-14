@@ -47,11 +47,12 @@ function inscription(){
             success: function(data) {
                 console.log(data);
                 if(data==0){
-                    $("#message_form_inscription").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Email ou Password Incorect</div>');
+                    $("#message_form_inscription").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Cette adresse mail est déjà prise</div>');
                 }else{
                     $("#form_inscription").hide();
                     $("#button_inscription").hide();
                     $("#message_form_inscription").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Inscription réussie</div>');
+                    window.location.reload()
                 }
             }
         });
