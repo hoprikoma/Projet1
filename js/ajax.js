@@ -129,7 +129,6 @@ function getConference(){
                           div+='<th>Titre</th>';
                               div+='<th>Description</th>';
                               div+='<th>Catégorie</th>';
-                            //  div+='<th>Action</th>';
                               div+='</tr>';
                           div+='</thead>';
                       div+='<tbody>';
@@ -139,7 +138,6 @@ function getConference(){
                            div+='<td>'+value.nom1+'</td>';
                            div+='<td>'+value.description+'</td>';
                            div+='<td>'+value.nom+'</td>';
-                         //  div+='<td><span id="'+value.id+'" class="opener_vote"><i class="fas fa-star"></i></span></td>';
                            div+='</tr>';
                       });
                            
@@ -230,7 +228,7 @@ function getConferenceNonVote(){
                           div+='<th>Titre</th>';
                               div+='<th>Description</th>';
                               div+='<th>Catégorie</th>';
-                              div+='<th>Action</th>';
+                              div+='<th>Vote</th>';
                               div+='</tr>';
                           div+='</thead>';
                       div+='<tbody>';
@@ -330,7 +328,7 @@ function gererConference(){
                            div+='<th>Titre</th>';
                                div+='<th>Description</th>';
                                div+='<th>Catégorie</th>';
-                               div+='<th>Action</th>';
+                               div+='<th>Supprimer</th>';
                                div+='</tr>';
                            div+='</thead>';
                        div+='<tbody>';
@@ -440,7 +438,7 @@ function conferenceSupprimer(){
                             div+='<th>Nom</th>';
                             div+='<th>Prenom</th>';
                             div+='<th>Email</th>';
-                            div+='<th>Action</th>';
+                            div+='<th>Supprimer</th>';
                             div+='</tr>';
                         div+='</thead>';
                     div+='<tbody>';
