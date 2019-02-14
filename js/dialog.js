@@ -55,6 +55,20 @@ function dialog(){
       clickOutsideTrigger: ".opener_vote"
     });
 
+    $( "#dialog_categorie" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 10
+      },
+      hide: {
+        effect: "blind",
+        duration: 10
+      },
+      clickOutside: true,
+      clickOutsideTrigger: "#opener_categorie"
+    });
+
 
     $( "#opener_inscription" ).on( "click", function() {
       $( "#dialog_inscription" ).dialog( "open" );
@@ -68,6 +82,8 @@ function dialog(){
       getCategorie();
       $( "#dialog_conf" ).dialog( "open" );
     });
+
+
     $( ".opener_vote" ).on( "click", function() {
       div='<div class="rating container" id="form_star">';
       div+='<div id="form_vote">';
@@ -93,6 +109,10 @@ function dialog(){
       $('#dialog_vote').html(div);
       $( "#dialog_vote" ).dialog( "open" );
       vote();
+    });
+    
+    $( "#opener_categorie" ).on( "click", function() {
+      $( "#dialog_categorie" ).dialog( "open" );
     });
 
   }
