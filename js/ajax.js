@@ -111,6 +111,28 @@ function createConference(){
        });
    });  
 }
+function createCategorie(){
+    $( "#btn-categorie" ).on( "click", function() {
+        $.ajax({
+            type: "POST",
+            data: {
+              name:$("#name_categorie").val()
+            },
+            url: "../controller/create_categorie_controller.php",
+            dataType: "html",
+            async: false,
+            success: function(data) {
+               if(data==0){
+                  $("#message_form_categorie").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Problème de création</div>');
+               }else{
+                  $("#form_categorie").hide();
+                  $("#button_categorie").hide();
+                  $("#message_form_categorie").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Création effectuée</div>');
+               }
+            }
+        });
+    });  
+ }
 function getConference(){
    //$( "#conf-display" ).on( "click", function() {
       
