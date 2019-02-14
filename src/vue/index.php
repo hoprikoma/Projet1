@@ -40,9 +40,14 @@
                     ';  
                     echo'
                     <li class="nav-item">
-                        <a class="nav-link show" data-toggle="tab" id="conf-gerer" href="#gerer" style="">Gerer les conferences</a>
+                        <a class="nav-link show" data-toggle="tab" id="conf-gerer" href="#gerer-conf" style="">Gerer les conferences</a>
                     </li>
-                    ';    
+                    ';   
+                    echo'
+                    <li class="nav-item">
+                        <a class="nav-link show" data-toggle="tab" id="user-gerer" href="#gerer-user" style="">Gerer les user</a>
+                    </li>
+                    '; 
                 }
             }
             ?>
@@ -71,7 +76,12 @@
                     echo'
                     <div class="tab-pane fade" id="conf-gerer">
                     </div>
+                    '; 
+                    echo'
+                    <div class="tab-pane fade" id="user-gerer">
+                    </div>
                     ';  
+                    
                 }
             }
             ?>            

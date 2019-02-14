@@ -32,16 +32,14 @@ class vote extends config
         try {
             $data_base=$this->connection();
             $req = $data_base->prepare('SELECT
-            projet.comference.nom,
+            projet.categorie.nom, 
+            projet.comference.nom AS nom1, 
             projet.comference.description,
-            projet.categorie.nom AS nom1
+            projet.comference.id
           FROM
             projet.vote
             INNER JOIN projet.comference ON projet.vote.id_conference = projet.comference.id
-            INNER JOIN projet.categorie ON projet.comference.id_categorie = projet.categorie.id
-          where
-            vote.id_user=:nom');
-            $req->bindParam(':nom',$_SESSION['id_user']);
+            INNER JOIN projet.categorie ON projet.comference.id_categorie = projet.categorie.id');
             $req->execute();
             $data=$req->fetchAll();
             return $data;

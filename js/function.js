@@ -10,4 +10,6 @@ $(document).ready(function(){
     getConferenceVote();
     getGererConference();
     allConferenceSupprimer();
+    getConferenceTop10();
+    getGererUser()
 })
