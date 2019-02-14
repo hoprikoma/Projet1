@@ -5,11 +5,13 @@ require_once '../model/user.php';
      $password=$_POST['password'];
      $hashing = password_hash("$password", PASSWORD_DEFAULT);
      $data = array(
-        'email' => $_POST['email'],
+        'email' => htmlentities($_POST['email'], ENT_COMPAT,'ISO-8859-1', true),
         'password' => $hashing,
-        'nom' => $_POST['nom'],
-        'prenom' => $_POST['prenom']
+        'nom' => htmlentities($_POST['nom'], ENT_COMPAT,'ISO-8859-1', true),
+        'prenom' => htmlentities($_POST['prenom'], ENT_COMPAT,'ISO-8859-1', true),
+        //   'email' => $_POST['email'],
+        //   'nom' => $_POST['nom'],
+      //   'prenom' => $_POST['prenom']
      );
-     print_r($data);
      $result = $user->inscription_user($data);
      echo $result;

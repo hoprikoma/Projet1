@@ -20,7 +20,7 @@ class comference extends config
                 $insert->bindParam(':categorie',$categorie);
                 $insert->bindParam(':id_auteur',$_SESSION['id_user']);
                 $insert->execute();
-               // $this->mail($name);
+                $this->mail($name);
                 return 1;
             }
         } catch (PDOException $e) {
