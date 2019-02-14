@@ -93,7 +93,7 @@ function createConference(){
        $.ajax({
            type: "POST",
            data: {
-             name:$("#name_conf").val(),description:$("#description_conf").val(),categorie:$("#cate_conf").val()
+             name:$("#name_conf").val(),description:$("#description_conf").val(),categorie:$("#categorie-conf option:selected").val()
            },
            url: "../controller/create_conference_controller.php",
            dataType: "html",
@@ -278,10 +278,11 @@ function getConferenceTop10(){
               div+='<table id="example" class="table table-striped table-bordered" style="width:100%">';
                   div+='<thead>';
                       div+='<tr>';
-                          div+='<th>Titre</th>';
-                              div+='<th>Description</th>';
-                              div+='<th>Catégorie</th>';
-                              div+='</tr>';
+                            div+='<th>Classement</th>';
+                            div+='<th>Titre</th>';
+                            div+='<th>Description</th>';
+                            div+='<th>Catégorie</th>';
+                            div+='</tr>';
                           div+='</thead>';
                       div+='<tbody>';
                       
@@ -414,3 +415,91 @@ function conferenceSupprimer(){
         });
     });  
  }
+
+ function gererUser()
+ {
+    console.log("gerer_user");
+     $.ajax({
+         type: "POST",
+         url: "../controller/getAllUser_controller.php",
+         dataType: "html",
+         async: false,
+         success: function(data) {
+          //   console.log(data);
+            
+            var json = JSON.parse(data);
+            let div = '<div class="tab-pane fade active show" id="home">';
+            div+='<table id="example" class="table table-striped table-bordered" style="width:100%">';
+                div+='<thead>';
+                    div+='<tr>';
+                            div+='<th>Nom</th>';
+                            div+='<th>Prenom</th>';
+                            div+='<th>Email</th>';
+                            div+='<th>Action</th>';
+                            div+='</tr>';
+                        div+='</thead>';
+                    div+='<tbody>';
+                    
+                    $.each( json, function( key, value ) {
+                      div+='<tr>';
+                         div+='<td>'+value.nom+'</td>';
+                         div+='<td>'+value.prenom+'</td>';
+                         div+='<td>'+value.email+'</td>';
+                         div+='<td><span id="'+value.id+'" class="btn_supprimer" title="Supprimer"><i class="fas fa-trash"></i></span></td>';
+                         div+='</tr>';
+                    });
+                         
+
+                    div+='</tbody>';
+                div+='</table>';
+            div+='</div>';
+            $("#myTabContent").html(div);
+            $('#example').DataTable( {
+              "language": {
+                  "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+              }
+          });
+            dialog();
+            userSupprimer();
+         }
+     });
+}
+function getGererUser(){
+    $( "#user-gerer" ).on( "click", function() {
+        gererUser();
+    });
+}
+function userSupprimer()
+{
+    $( ".btn_supprimer" ).on( "click", function() {
+        console.log(this.getAttribute('id'));
+        $.ajax({
+            type: "POST",
+            data: {
+              id_user:this.getAttribute('id')
+            },
+            url: "../controller/supprimerUser_controller.php",
+            dataType: "html",
+            async: false,
+            success: function(data) {
+               gererUser();
+            }
+        });
+    }); 
+}
+function getCategorie(){
+        $.ajax({
+            type: "POST",
+            url: "../controller/getCategorie_controller.php",
+            dataType: "html",
+            async: false,
+            success: function(data) {
+                var json = JSON.parse(data);
+                let div="";
+                $.each( json, function( key, value ) {
+                    div+='<option value='+value.id+'>'+value.nom+'</option>';
+                });
+                $("#categorie-conf").html(div);
+            }
+        });
+}
