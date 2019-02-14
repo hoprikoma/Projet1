@@ -4,7 +4,6 @@ services:
   web:
     build:
       context: ./
-      dockerfile: Dockerfile
     image: webdevops/php-nginx:7.3
     working_dir: /app
     ports:
