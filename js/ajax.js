@@ -11,15 +11,15 @@ function connexion(){
             dataType: "html",
             async: false,
             success: function(data) {
-               if(data==0){
-                  $("#message_form_connexion").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Email ou Password Incorect</div>');
-               }else{
-                  $("#form_connexion").hide();
-                  $("#button_connexion").hide();
-                  $("#message_form_connexion").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Vous etes connecter</div>');
-                  //$("#navbar").load("../include/navbar.php #navbar");
-                  window.location.reload()
-               }
+                if(data==0){
+                    $("#message_form_connexion").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Email ou Password Incorect</div>');
+                }else{
+                    $("#form_connexion").hide();
+                    $("#button_connexion").hide();
+                    $("#message_form_connexion").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Vous etes connecter</div>');
+                    //$("#navbar").load("../include/navbar.php #navbar");
+                   window.location.reload()
+                }
             }
         });
         deconnexion();
@@ -29,36 +29,36 @@ function connexion(){
     });  
 }
 function inscription(){
-   $( "#btn-inscription" ).on( "click", function() {
-     var email=$("#mail-inscription").val();
-     var nom=$("#name").val();
-     var password=$("#pass-inscription").val();
-     var prenom = $("#forename").val();
-     result=verifMail($("#mail-inscription").val());
-     if(result==true){
-       $.ajax({
-           type: "POST",
-           data: {
-              email:email, nom:nom, password:password, prenom:prenom,
-           },
-           url: "../controller/inscription_controller.php",
-           dataType: "html",
-           async: false,
-           success: function(data) {
-              console.log(data);
-              if(data==0){
-                 $("#message_form_inscription").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Email ou Password Incorect</div>');
-              }else{
-                 $("#form_inscription").hide();
-                 $("#button_inscription").hide();
-                 $("#message_form_inscription").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Inscription réussie</div>');
-              }
-           }
-       });
-     }else{
-        $("#message_form_inscription").html("<div class='alert alert-danger' role='alert'><i class='fas fa-1x fa-times'></i> Votre email n'est pas valide</div>");
-     }
-   });  
+    $( "#btn-inscription" ).on( "click", function() {
+        var email=$("#mail-inscription").val();
+        var nom=$("#name").val();
+        var password=$("#pass-inscription").val();
+        var prenom = $("#forename").val();
+        result=verifMail($("#mail-inscription").val());
+        if(result==true){
+        $.ajax({
+            type: "POST",
+            data: {
+                email:email, nom:nom, password:password, prenom:prenom,
+            },
+            url: "../controller/inscription_controller.php",
+            dataType: "html",
+            async: false,
+            success: function(data) {
+                console.log(data);
+                if(data==0){
+                    $("#message_form_inscription").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Email ou Password Incorect</div>');
+                }else{
+                    $("#form_inscription").hide();
+                    $("#button_inscription").hide();
+                    $("#message_form_inscription").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Inscription réussie</div>');
+                }
+            }
+        });
+        }else{
+            $("#message_form_inscription").html("<div class='alert alert-danger' role='alert'><i class='fas fa-1x fa-times'></i> Votre email n'est pas valide</div>");
+        }
+    });  
 }
 function deconnexion(){
    $( "#deconnexion" ).on( "click", function() {
@@ -213,7 +213,6 @@ function getConferenceVote(){
 }
 
 function getConferenceNonVote(){
-   $( "#conf-non-vote" ).on( "click", function() {
       console.log("non-vote");
        $.ajax({
            type: "POST",
@@ -259,6 +258,10 @@ function getConferenceNonVote(){
               dialog();
            }
        });
+}
+function refreshgetConferenceNonVote(){
+    $( "#conf-non-vote" ).on( "click", function() {
+        getConferenceNonVote();
     });
 }
 
@@ -280,17 +283,18 @@ function getConferenceTop10(){
                       div+='<tr>';
                             div+='<th>Classement</th>';
                             div+='<th>Titre</th>';
-                            div+='<th>Description</th>';
-                            div+='<th>Catégorie</th>';
+                            div+='<th>Nombre de Vote</th>';
                             div+='</tr>';
                           div+='</thead>';
                       div+='<tbody>';
                       
                       $.each( json, function( key, value ) {
                         div+='<tr>';
-                           div+='<td>'+value.nom1+'</td>';
-                           div+='<td>'+value.description+'</td>';
+                        let number=key;
+                        number++;
+                           div+='<td>'+number+'</td>';
                            div+='<td>'+value.nom+'</td>';
+                           div+='<td>'+value.total+'</td>';
                            div+='</tr>';
                       });
                            
@@ -405,11 +409,12 @@ function conferenceSupprimer(){
             async: false,
             success: function(data) {
                if(data==0){
-                  $("#message_form_conf").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Erreur Enregistrement</div>');
+                  $("#message_form_vote").html('<div class="alert alert-danger" role="alert"><i class="fas fa-1x fa-times"></i> Erreur Enregistrement</div>');
                }else{
-                  $("#form_conf").hide();
-                  $("#button_conf").hide();
-                  $("#message_form_conf").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Vote Enregitrer</div>');
+                  $("#form_vote").hide();
+                  $("#button_vote").hide();
+                  $("#message_form_vote").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Vote Enregitrer</div>');
+                  getConferenceNonVote();
                }
             }
         });
