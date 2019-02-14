@@ -31,17 +31,18 @@ class vote extends config
         session_start();
         try {
             $data_base=$this->connection();
-            $req = $data_base->prepare('SELECT
-            projet.categorie.nom, 
-            projet.comference.nom AS nom1, 
-            projet.comference.description,
-            projet.comference.id
-          FROM
-            projet.vote
-            INNER JOIN projet.comference ON projet.vote.id_conference = projet.comference.id
-            INNER JOIN projet.categorie ON projet.comference.id_categorie = projet.categorie.id');
+            $req = $data_base->prepare('SELECT id, nom FROM comference');
             $req->execute();
             $data=$req->fetchAll();
+            $x=0;
+            foreach($data as $value){
+                $req = $data_base->prepare('SELECT COUNT(*) FROM vote WHERE id_conference = :conference');
+                $req->bindParam(':conference',$value['id']);
+                $req->execute();
+                $count=$req->fetch();
+                $data[$x]['total']=$count[0];
+                $x++;
+            }
             return $data;
         } catch (PDOException $e) {
             return "Erreur !: " . $e->getMessage() . "<br/>";
