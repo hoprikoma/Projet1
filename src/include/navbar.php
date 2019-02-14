@@ -51,11 +51,11 @@ if (!isset($_SESSION['user'])) {
             <input type="email" class="form-control" id="mail-inscription"  placeholder="Email">
             <input type="password" class="form-control" id="pass-inscription" aria-describedby="passHelp" placeholder="Mot de passe">
             <small id="passHelp" class="form-text text-muted">Vous ne devez jamais partager votre mot de passe avec qui que ce soit.</small>
-            <div id="button_inscription">
-              <button id="btn-inscription"  class="btn btn-primary">Envoi</button>
-            </div>
         </div>
 </form>
+        <div id="button_inscription">
+          <button id="btn-inscription"  class="btn btn-primary">Envoi</button>
+        </div>
 </div>
 <div id="message_form_inscription"></div>
 

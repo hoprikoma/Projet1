@@ -29,7 +29,6 @@ class user extends config
                 $insert->bindParam(':prenom',$data_post['prenom']);
                 $insert->bindParam(':role',$role);
                 $insert->execute();
-                print_r($data_post);
                 return 1;
             }
         } catch (PDOException $e) {
