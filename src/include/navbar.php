@@ -68,11 +68,11 @@ if (!isset($_SESSION['user'])) {
         <div class="form-group">
             <input type="email" class="form-control" id="mail-connexion" placeholder="Email" required>
             <input type="password" class="form-control" id="pass-connexion" aria-describedby="passHelp" placeholder="Mot de passe" required>
-            <div id="button_connexion">
-              <button id="btn-connexion" class="btn btn-primary">Envoi</button>
-            </div>
         </div>
 </form>
+<div id="button_connexion">
+<button id="btn-connexion" class="btn btn-primary">Envoi</button>
+</div>
 </div>
 <div id="message_form_connexion"></div>
 

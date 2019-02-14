@@ -6,7 +6,7 @@ $(document).ready(function(){
     createConference();
     getConference();
     refreshGetConference();
-    getConferenceNonVote();
+    refreshgetConferenceNonVote()
     getConferenceVote();
     getGererConference();
     allConferenceSupprimer();
