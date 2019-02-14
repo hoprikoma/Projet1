@@ -65,12 +65,13 @@ function dialog(){
     });
     
     $( "#opener_conf" ).on( "click", function() {
+      getCategorie();
       $( "#dialog_conf" ).dialog( "open" );
     });
     $( ".opener_vote" ).on( "click", function() {
-      console.log("je marche");
-      div='<div class="rating">';
-      div+='<form method="POST">';
+      div='<div class="rating container" id="form_star">';
+      div+='<div id="form_vote">';
+      div+='<form action="" method="post">';
       div+='<label for="star1" title="Mauvaise">1 star</label>';
       div+='<input type="radio" id="star1" name="rating" value="1" />';
       div+='<label for="star2" title="Pas interessante">2 stars</label>';
@@ -81,10 +82,17 @@ function dialog(){
       div+='<input type="radio" id="star4" name="rating" value="4" />';
       div+='<label for="star5" title="Géniale">5 stars</label>';
       div+='<input type="radio" id="star5" name="rating" value="5" />';
+      div+='<input type="hidden" id="id_conference" value="'+this.getAttribute('id')+'" />';
       div+='</form>';
+      div+='<div id="button_vote">';
+      div+='<button id="btn-vote"  class="btn btn-primary" style="margin-bottom:10px">Envoi</button>';
+      div+='</div>';
+      div+='</div>';
+      div+='<div id="message_form_vote"></div>';
       div+='</div>';
       $('#dialog_vote').html(div);
       $( "#dialog_vote" ).dialog( "open" );
+      vote();
     });
 
   }

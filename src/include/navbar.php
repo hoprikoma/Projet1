@@ -26,10 +26,10 @@ if (!isset($_SESSION['user'])) {
           echo'<li class="nav-item">
             <a class="nav-link" id="opener_conf">Creer conférence</a>
           </li>';
+          echo'<li class="nav-item">
+            <a class="nav-link" id="delete-all">Supprimer toute les conférences</a>
+          </li>';
     }
-    echo '<li class="nav-item">
-          <a class="nav-link" href="profil.php">Profil</a>
-        </li>';
     echo '<li class="nav-item">
           <a class="nav-link" id="deconnexion">Deconnexion</a>
         </li>';
@@ -84,13 +84,14 @@ else {
     echo'
 <div id="dialog_conf" title="Creation de conférence" class="container">
 <div id="form_conf">
-<form action="" method="post">
+<form method="post">
         <div class="form-group">
             <input type="text" class="form-control" id="name_conf"  placeholder="Nom de la conférence">
             <textarea id="description_conf" class="form-control" name="description_conf" rows="5" cols="33" style="width:100%" placeholder="Description de la conférence"></textarea>
-            <input type="text" class="form-control" id="cate_conf" placeholder="Catégorie">
+            <select class="form-control" id="categorie-conf">
+            </select>
             <div id="button_conf">
-                <button id="btn-conf"  class="btn btn-primary">Envoi</button>
+                <button id="btn-conf" class="btn btn-primary">Envoi</button>
             </div>
         </div>
 </form>
