@@ -60,5 +60,35 @@ class user extends config
         }
     }
 
+    function getAll_user()
+    {
+        try {
+            $data_base=$this->connection();
+            $req = $data_base->prepare('SELECT nom, prenom, email, id FROM user WHERE id_role = :role');
+            $req->bindValue(':role',1);
+            $req->execute();
+            $data=$req->fetchAll();
+            return $data;
+        } catch (PDOException $e) {
+            return "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+
+    function delete_user($id_user)
+    {
+        try {
+            $data_base=$this->connection();
+            $delete=$data_base->prepare('DELETE FROM user WHERE id = :id_user');
+            $delete->bindParam(':id_user',$id_user);
+            $delete->execute();
+            return 1;
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+
+
 }
 

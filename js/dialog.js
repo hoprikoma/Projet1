@@ -65,6 +65,7 @@ function dialog(){
     });
     
     $( "#opener_conf" ).on( "click", function() {
+      getCategorie();
       $( "#dialog_conf" ).dialog( "open" );
     });
     $( ".opener_vote" ).on( "click", function() {
