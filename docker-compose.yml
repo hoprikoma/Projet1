@@ -1,0 +1,58 @@
+version: "3.5"
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: docker/nginx/Dockerfile
+    image: webdevops/php-nginx:7.3
+    working_dir: /app
+    ports:
+      - 8082:80
+    depends_on:
+      - database
+    volumes:
+      - .:/app/
+    links:
+      - php
+    environment:
+      WEB_DOCUMENT_ROOT: /app/source
+      WEB_DOCUMENT_INDEX: index.php
+      PHP_DATE_TIMEZONE: "Europe/Paris"
+      PHP_DISPLAY_ERRORS: 1
+      MYSQL_ROOT_PASSWORD: root
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/app/
+  
+  mailhog:
+    build:
+      context: ./
+      dockerfile: docker/mailhog/Dockerfile
+    image: mailhog/mailhog
+    volumes:
+      - .:/app/
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  database:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes: 
+      - ./sql/projet_v1.sql:/docker-entrypoint-initdb.d/dump.sql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - database
+    ports:
+      - "8081:80"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      PMA_HOST: database
