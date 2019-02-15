@@ -106,6 +106,7 @@ function createConference(){
                  $("#form_conf").hide();
                  $("#button_conf").hide();
                  $("#message_form_conf").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Création effectuée</div>');
+                 window.location.reload()
               }
            }
        });
@@ -128,6 +129,7 @@ function createCategorie(){
                   $("#form_categorie").hide();
                   $("#button_categorie").hide();
                   $("#message_form_categorie").html('<div class="alert alert-success" role="alert"><i class="fas fa-1x fa-check"></i> Création effectuée</div>');
+                  window.location.reload()
                }
             }
         });
