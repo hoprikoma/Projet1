@@ -4,24 +4,38 @@ services:
   web:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: docker/nginx/Dockerfile
     image: webdevops/php-nginx:7.3
     working_dir: /app
     ports:
-      - 80:80
+      - 8082:80
     depends_on:
       - database
     volumes:
-      - .:/app
+      - .:/app/
+    links:
+      - php
     environment:
-      WEB_DOCUMENT_ROOT: /app/public
+      WEB_DOCUMENT_ROOT: /app/source
       WEB_DOCUMENT_INDEX: index.php
       PHP_DATE_TIMEZONE: "Europe/Paris"
       PHP_DISPLAY_ERRORS: 1
       MYSQL_ROOT_PASSWORD: root
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/app/
   
   mailhog:
+    build:
+      context: ./
+      dockerfile: docker/mailhog/Dockerfile
     image: mailhog/mailhog
+    volumes:
+      - .:/app/
     ports:
       - "1025:1025"
       - "8025:8025"

@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 echo '
 <div id="navbar">
 <nav  class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,6 +25,9 @@ if (!isset($_SESSION['user'])) {
         if ($_SESSION['role']=='admin') {
           echo'<li class="nav-item">
             <a class="nav-link" id="opener_conf">Creer conférence</a>
+          </li>';
+          echo'<li class="nav-item">
+            <a class="nav-link" id="opener_categorie">Creer catégorie</a>
           </li>';
           echo'<li class="nav-item">
             <a class="nav-link" id="delete-all">Supprimer toute les conférences</a>
@@ -90,13 +93,27 @@ else {
             <textarea id="description_conf" class="form-control" name="description_conf" rows="5" cols="33" style="width:100%" placeholder="Description de la conférence"></textarea>
             <select class="form-control" id="categorie-conf">
             </select>
-            <div id="button_conf">
+        </div>
+</form>
+<div id="button_conf">
                 <button id="btn-conf" class="btn btn-primary">Envoi</button>
+            </div>
+</div>
+<div id="message_form_conf"></div>
+</div>';
+echo'
+<div id="dialog_categorie" title="Creation de catégorie" class="container">
+<div id="form_categorie">
+<form method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" id="name_categorie"  placeholder="Nom de la categorie">
+            <div id="button_categorie">
+                <button id="btn-categorie" class="btn btn-primary">Envoi</button>
             </div>
         </div>
 </form>
 </div>
-<div id="message_form_conf"></div>
+<div id="message_form_categorie"></div>
 </div>';
     }
 }

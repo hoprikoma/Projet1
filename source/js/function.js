@@ -4,6 +4,7 @@ $(document).ready(function(){
     inscription();
     deconnexion();
     createConference();
+    createCategorie();
     getConference();
     refreshGetConference();
     refreshgetConferenceNonVote()
