@@ -96,8 +96,8 @@ else {
         </div>
 </form>
 <div id="button_conf">
-                <button id="btn-conf" class="btn btn-primary">Envoi</button>
-            </div>
+  <button id="btn-conf" class="btn btn-primary">Envoi</button>
+</div>
 </div>
 <div id="message_form_conf"></div>
 </div>';
@@ -107,11 +107,11 @@ echo'
 <form method="post">
         <div class="form-group">
             <input type="text" class="form-control" id="name_categorie"  placeholder="Nom de la categorie">
-            <div id="button_categorie">
-                <button id="btn-categorie" class="btn btn-primary">Envoi</button>
-            </div>
         </div>
 </form>
+<div id="button_categorie">
+  <button id="btn-categorie" class="btn btn-primary">Envoi</button>
+</div>
 </div>
 <div id="message_form_categorie"></div>
 </div>';
