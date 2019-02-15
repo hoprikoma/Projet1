@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 echo '
 <div id="navbar">
 <nav  class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -93,11 +93,11 @@ else {
             <textarea id="description_conf" class="form-control" name="description_conf" rows="5" cols="33" style="width:100%" placeholder="Description de la conférence"></textarea>
             <select class="form-control" id="categorie-conf">
             </select>
-            <div id="button_conf">
-                <button id="btn-conf" class="btn btn-primary">Envoi</button>
-            </div>
         </div>
 </form>
+<div id="button_conf">
+                <button id="btn-conf" class="btn btn-primary">Envoi</button>
+            </div>
 </div>
 <div id="message_form_conf"></div>
 </div>';
