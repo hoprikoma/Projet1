@@ -18,6 +18,7 @@ services:
       WEB_DOCUMENT_INDEX: index.php
       PHP_DATE_TIMEZONE: "Europe/Paris"
       PHP_DISPLAY_ERRORS: 1
+      MYSQL_ROOT_PASSWORD: root
   
   mailhog:
     image: mailhog/mailhog

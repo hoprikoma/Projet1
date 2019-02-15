@@ -29,7 +29,6 @@ class user extends config
                 $insert->bindParam(':prenom',$data_post['prenom']);
                 $insert->bindParam(':role',$role);
                 $insert->execute();
-                print_r($data_post);
                 return 1;
             }
         } catch (PDOException $e) {
@@ -45,7 +44,6 @@ class user extends config
         $req->bindValue(':username',$user, PDO::PARAM_STR);
         $req->execute();
         $data=$req->fetch();
-        echo $data['password'];
         if (password_verify($password, $data['password'])) // Acces OK !
         {
             session_start();

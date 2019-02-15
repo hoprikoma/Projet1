@@ -4,9 +4,10 @@ $(document).ready(function(){
     inscription();
     deconnexion();
     createConference();
+    createCategorie();
     getConference();
     refreshGetConference();
-    getConferenceNonVote();
+    refreshgetConferenceNonVote()
     getConferenceVote();
     getGererConference();
     allConferenceSupprimer();
