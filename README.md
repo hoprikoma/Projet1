@@ -29,3 +29,7 @@ Les utilisateurs peuvent :
 
 Un docker est disponible pour une installation rapide du projet à l'aide d'un simple "docker-composer up" dans le répertoire du projet.
 Mailhog est installé avec le docker pour le suivi de mail.
+
+Informations du compte administrateur : 
+ - ID : root@gmail.com
+ - mdp : root
